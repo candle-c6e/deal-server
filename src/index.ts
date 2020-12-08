@@ -3,6 +3,8 @@ dotenv.config()
 import path from 'path'
 import express, { NextFunction, Response } from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
+import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import connectDatabase from './database'
 import { RequestCustom } from './lib/types'
@@ -28,6 +30,8 @@ app.use(cors({
   ],
   credentials: true
 }))
+app.use(helmet())
+app.use(compression())
 app.use(cookieParser(process.env.SECRET_COOKIE))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
