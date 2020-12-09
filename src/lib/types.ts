@@ -53,6 +53,19 @@ export interface Token {
   token: string
 }
 
+interface Message {
+  message: string
+  userId: ObjectId
+  timestamp: Date
+}
+
+export interface Chat {
+  _id: ObjectId
+  messages: Message[] | [],
+  participant: ObjectId[]
+  updatedAt: Date | null
+}
+
 export interface RequestCustom extends Request {
   database?: Database
   userId?: string
@@ -66,5 +79,6 @@ export interface Database {
   users: Collection<User>
   products: Collection<Product>
   categories: Collection<Category>
-  token: Collection<Token>
+  token: Collection<Token>,
+  chats: Collection<Chat>
 }

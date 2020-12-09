@@ -12,7 +12,8 @@ const connectDatabase = async (): Promise<Database> => {
       users: db.collection('users'),
       products: db.collection('products'),
       categories: db.collection('categories'),
-      token: db.collection('token')
+      token: db.collection('token'),
+      chats: db.collection('chats')
     }
   } catch (error) {
     throw new Error(error)
